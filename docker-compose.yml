@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  emtsv:
+    image: mtaril/emtsv
+    container_name: emtsv
+    # ports:
+    #   - "5000:5000"
+    networks:
+      inner:
+        aliases:
+          - emtsv.aiventure.me
+  nginx:
+    image: nginx
+    container_name: proxy
+    ports:
+      - '8080:80'
+    networks:
+      inner:
+        aliases:
+          - proxy.aiventure.me
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./.htpasswd:/etc/nginx/.htpasswd
+
+networks:
+  inner: {}
