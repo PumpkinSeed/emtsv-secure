@@ -9,7 +9,7 @@ services:
     networks:
       inner:
         aliases:
-          - emtsv.aiventure.me
+          - emtsv.company.me
   nginx:
     image: nginx
     container_name: proxy
@@ -18,7 +18,7 @@ services:
     networks:
       inner:
         aliases:
-          - proxy.aiventure.me
+          - proxy.company.me
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
       - ./.htpasswd:/etc/nginx/.htpasswd
